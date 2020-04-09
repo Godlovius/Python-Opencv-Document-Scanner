@@ -12,14 +12,7 @@ img1=cv2.bilateralFilter(img1,7,17,17)
 cv2.imshow('Ede',img1)
 img1=cv2.Canny(img1,30,200)
 cnts=cv2.findContours(img1,cv2.RETR_TREE,cv2.CHAIN_APPROX_NONE)
-#cnts=np.asarray(cnts,dtype='uint8')
-
-cnts=imutils.grab_contours(cnts) 
-cv2.imshow('Edge',img1)
-print(' var  data type',cnts  )
-#print("Hi")
-
-
+cnts=imutils.grab_contours(cnts)
 img=cv2.drawContours(img,[cnts],-1,(255,255,0),3)
 
 cnts=sorted(cnts,key=cv2.contourArea,reverse=True)[:10]
